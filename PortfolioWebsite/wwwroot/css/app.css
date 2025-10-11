@@ -1,3 +1,18 @@
+:root {
+    /*Define colors*/
+    --color-background-primary: #101010;
+    --color-text-primary: #cccccc;
+    /*Define fonts*/
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --color-background-primary: #101010;
+        --color-text-primary: #cccccc;
+    }
+}
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
