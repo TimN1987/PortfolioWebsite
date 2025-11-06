@@ -1,17 +1,51 @@
 ﻿@inherits LayoutComponentBase
+@inject IConfiguration Configuration
 
-<div class="layout-container">
-    <nav class="top-nav">
-        <ul>
-            <li><NavLink href="/">Home</NavLink></li>
-            <li><NavLink href="/projects">Projects</NavLink></li>
-            <li><NavLink href="/about">About</NavLink></li>
-            <li><NavLink href="/contact">Contact</NavLink></li>
-        </ul>
-    </nav>
-
-    <div class="content-frame">
-        @Body
+<header class="top-nav">
+    <div class="nav-left">
+        <NavLink href="/" class="home-link">
+            <img src="images/mainlayout/homewhite.png" alt="Home" class="home-icon" />
+        </NavLink>
     </div>
-</div>
+
+    <div class="menu-container">
+        <button class="menu-button" @onclick="ToggleMenu">
+            <span class="menu-icon">&#9776;</span>
+        </button>
+
+        @if (isMenuOpen)
+        {
+            <ul class="dropdown-menu">
+                <li><a href="/about">About</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        }
+    </div>
+</header>
+
+<main class="content-frame">
+    @Body
+</main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <a href="https://github.com/TimN1987" target="_blank" rel="noopener" class="footer-link github">
+            <img src="images/mainlayour/githubwhite.png" alt="GitHub" class="footer-icon" />
+        </a>
+        <a href="mailto:@Configuration["contactEmail"]" class="footer-link email">
+            <img src="images/mainlayout/emailwhite.png" alt="Email" class="footer-icon" />
+        </a>
+    </div>
+</footer>
+
+@code {
+    private bool isMenuOpen;
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+}
+
 

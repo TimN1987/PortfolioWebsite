@@ -1,16 +1,44 @@
 :root {
     /*Define colors*/
+    --color-background-menu: #000000;
     --color-background-primary: #101010;
     --color-text-primary: #cccccc;
     /*Define fonts*/
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-standard: clamp(1rem, 4vw, 3rem);
+    --font-size-header: clamp(2rem, 5vw, 4rem);
+    --font-size-header-large: clamp(4rem, 10vw, 8rem);
 }
 
 @media(prefers-color-scheme: dark) {
     :root {
+        --color-background-menu: #000000;
         --color-background-primary: #101010;
         --color-text-primary: #cccccc;
     }
+}
+
+@media(prefers-color-scheme: light) {
+    :root {
+        --color-background-menu: #ffffff;
+        --color-background-primary: #f0f0f0;
+        --color-text-primary: #333333;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 .valid.modified:not([type=checkbox]) {

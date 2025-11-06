@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <RazorCSSIsolationEnabled>true</RazorCSSIsolationEnabled>
+	  <ScopedCSSEnabled>true</ScopedCSSEnabled>
   </PropertyGroup>
 
   <ItemGroup>
