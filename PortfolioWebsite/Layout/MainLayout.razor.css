@@ -12,22 +12,30 @@
 }
 
 @media(prefers-color-scheme: dark) {
+    .home-link img {
+        content: url('images/mainlayout/homewhite.png');
+    }
+
     .footer-link.github img {
         content: url('images/mainlayout/githubwhite.png');
     }
 
     .footer-link.email img {
-        content: url('image/mainlayout/emailwhite.png');
+        content: url('images/mainlayout/emailwhite.png');
     }
 }
 
 @media(prefers-color-scheme: light) {
+    .home-link img {
+        content: url('images/mainlayout/homeblack.png');
+    }
+
     .footer-link.github img {
         content: url('images/mainlayout/githubblack.png');
     }
 
     .footer-link.email img {
-        content: url('image/mainlayout/emailblack.png');
+        content: url('images/mainlayout/emailblack.png');
     }
 }
 
@@ -71,6 +79,10 @@
     .menu-button:hover {
         opacity: 0.8;
     }
+
+.menu-icon {
+    color: var(--color-text-icons);
+}
 
 /* Dropdown menu */
 .dropdown-menu {

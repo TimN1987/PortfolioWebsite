@@ -9,7 +9,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000000;
+    background-color: var(--color-background-menu);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@
 }
 
 .intro-text {
-    color: #ffffff;
+    color: var(--color-text-primary);
     font-family: var(--font-primary);
     font-size: var(--font-size-header-large);
     font-weight: bold;
@@ -70,23 +70,9 @@
 }
 
 @keyframes emphasise {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-
-    25% {
-        transform: scale(1.25) rotate(-2deg);
-    }
-
-    50% {
-        transform: scale(1.25) rotate(2deg);
-    }
-
-    75% {
-        transform: scale(1.25) rotate(-1deg);
-    }
-
-    100% {
-        transform: scale(1) rotate(0deg);
-    }
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.25) rotate(-2deg); }
+    50% { transform: scale(1.25) rotate(2deg); }
+    75% { transform: scale(1.25) rotate(-1deg); }
+    100% { transform: scale(1) rotate(0deg); }
 }

@@ -1,0 +1,25 @@
+﻿<article class="project-container">
+	<h2 class="project-name"><span>@ProjectName</span></h2>
+	<p class="project-description">@Description</p>
+	<figure class="project-image">
+		<img class="static-image" src="@StaticImageSource" alt="@ProjectName screenshot." loading="lazy"/>
+		<img class="active-image" src="@ActiveImageSource" alt="@ProjectName in action." loading="lazy"/>
+	</figure>
+	<p class="project-stack">@TechStackString</p>
+	@if (!string.IsNullOrWhiteSpace(GithubLink))
+	{
+		<a class="project-link" href="@GithubLink" target="_blank" rel="noopener noreferrer">
+			<span class="project-link-text">View on GitHub</span>
+		</a>
+	}
+</article>
+
+@code {
+	[Parameter] public string ProjectName { get; set; } = string.Empty;
+	[Parameter] public string Description { get; set; } = string.Empty;
+	[Parameter] public List<string> TechStack { get; set; } = new();
+	[Parameter] public string StaticImageSource { get; set; } = string.Empty;
+	[Parameter] public string ActiveImageSource { get; set; } = string.Empty;
+	public string TechStackString => String.Join(" | ", TechStack);
+	[Parameter] public string GithubLink { get; set; } = string.Empty;
+}
