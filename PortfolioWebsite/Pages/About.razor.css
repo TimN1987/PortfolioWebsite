@@ -7,11 +7,12 @@
 }
 
 .about-header {
+    position: relative;
     font-family: var(--font-primary);
     font-size: var(--font-size-header);
     color: var(--color-text-primary);
     text-align: left;
-    margin: 2rem 10vw;
+    margin: 2rem 5vw;
     display: inline-block;
     width: auto;
     transition: text-shadow 0.2s ease-in-out;
@@ -19,6 +20,25 @@
 
     .about-header span:hover {
         text-shadow: 0 0 5px var(--color-text-primary), 0 0 10px var(--color-text-primary), 0 0 20px var(--color-text-primary);
+    }
+
+    .about-header::after,
+    .about-header::before {
+        content: "";
+        position: absolute;
+        left: 3vw;
+        height: 2px;
+        background-color: var(--color-background-highlight);
+        border-radius: 2px;
+        width: 20%;
+    }
+
+    .about-header::after {
+        bottom: -0.3rem;
+    }
+
+    .about-header::before {
+        bottom: -0.6rem;
     }
 
 .about-content {
@@ -34,6 +54,7 @@
     display: flex;
     flex-direction: row;
     gap: clamp(50px, 1rem, 100px);
+    margin: 1rem 5vw;
 }
 
 @media (width < 600px) {
@@ -45,7 +66,7 @@
 
 .about-image-container {
     flex: 0 0 auto;
-    width: clamp(75px, 15vw, 150px);
+    width: clamp(100px, 20vw, 200px);
     height: auto;
 }
 
@@ -59,6 +80,7 @@
     flex: 1;
     line-height: 1.6;
     text-align: left;
+    margin: 1rem 5vw;
 }
 
 .about-skills {
