@@ -1,12 +1,13 @@
 ﻿@page "/projects"
 @layout MainLayout
+@using PortfolioWebsite.Components
 
 <section class="projects-section">
 	<h1 class="projects-header"><span>Projects</span></h1>
 	<section class="projects-container">
 		@foreach (var project in ProjectList)
 		{
-			<@ProjectCard ProjectName="@project.ProjectName"
+			<ProjectCard ProjectName="@project.ProjectName"
 						 Description="@project.Description"
 						 TechStack="@project.TechStack"
 						 StaticImageSource="@project.StaticImageSource"
@@ -24,8 +25,8 @@
 			ProjectName = "Battleships game",
 			Description = "A full-stack Battleships game with customisable game rules and multiple difficulty modes (including an AI opponent).",
 			TechStack = new List<string> { "C#", "WPF", "MVVM", "XAML", "Python", "Machine Learning" },
-			StaticImageSource = "images/projects/portfolio/static.png",
-			ActiveImageSource = "images/projects/portfolio/active.gif",
+			StaticImageSource = "images/projects/battleshipsstatic.png",
+			ActiveImageSource = "images/projects/battleshipsactive.gif",
 			GithubLink = "https://github.com/TimN1987/Battleships"
 		}
 	};
@@ -39,5 +40,4 @@
 		public string ActiveImageSource { get; set; } = string.Empty;
 		public string GithubLink { get; set; } = string.Empty;
 	}
-	
 }

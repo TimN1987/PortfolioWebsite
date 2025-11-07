@@ -7,12 +7,12 @@
 	</figure>
 	<div class="stack-container">
 		<p class="project-stack"><em>@TechStackString</em></p>
-	@if (!string.IsNullOrWhiteSpace(GithubLink))
-	{
-		<a class="project-link" href="@GithubLink" target="_blank" rel="noopener noreferrer">
-			<img class="project-link-img" alt="Link to Github repo."/>
-		</a>
-	}
+		@if (!string.IsNullOrWhiteSpace(GithubLink))
+		{
+			<a class="project-link" href="@GithubLink" target="_blank" rel="noopener noreferrer">
+				<img class="project-link-img" alt="Link to Github repo."/>
+			</a>
+		}
 	</div>
 </article>
 
