@@ -3,7 +3,41 @@
 
 <section class="projects-section">
 	<h1 class="projects-header"><span>Projects</span></h1>
-	<section class="project-container">
-
+	<section class="projects-container">
+		@foreach (var project in ProjectList)
+		{
+			<@ProjectCard ProjectName="@project.ProjectName"
+						 Description="@project.Description"
+						 TechStack="@project.TechStack"
+						 StaticImageSource="@project.StaticImageSource"
+						 ActiveImageSource="@project.ActiveImageSource"
+						 GithubLink="@project.GithubLink" />
+		}
 	</section>
 </section>
+
+@code {
+	private List<ProjectInfo> ProjectList = new()
+	{
+		new ProjectInfo()
+		{
+			ProjectName = "Battleships game",
+			Description = "A full-stack Battleships game with customisable game rules and multiple difficulty modes (including an AI opponent).",
+			TechStack = new List<string> { "C#", "WPF", "MVVM", "XAML", "Python", "Machine Learning" },
+			StaticImageSource = "images/projects/portfolio/static.png",
+			ActiveImageSource = "images/projects/portfolio/active.gif",
+			GithubLink = "https://github.com/TimN1987/Battleships"
+		}
+	};
+
+	private class ProjectInfo
+	{
+		public string ProjectName { get; set; } = string.Empty;
+		public string Description { get; set; } = string.Empty;
+		public List<string> TechStack { get; set; } = new();
+		public string StaticImageSource { get; set; } = string.Empty;
+		public string ActiveImageSource { get; set; } = string.Empty;
+		public string GithubLink { get; set; } = string.Empty;
+	}
+	
+}

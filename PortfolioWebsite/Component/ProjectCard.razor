@@ -5,13 +5,15 @@
 		<img class="static-image" src="@StaticImageSource" alt="@ProjectName screenshot." loading="lazy"/>
 		<img class="active-image" src="@ActiveImageSource" alt="@ProjectName in action." loading="lazy"/>
 	</figure>
-	<p class="project-stack">@TechStackString</p>
+	<div class="stack-container">
+		<p class="project-stack"><em>@TechStackString</em></p>
 	@if (!string.IsNullOrWhiteSpace(GithubLink))
 	{
 		<a class="project-link" href="@GithubLink" target="_blank" rel="noopener noreferrer">
-			<span class="project-link-text">View on GitHub</span>
+			<img class="project-link-img" alt="Link to Github repo."/>
 		</a>
 	}
+	</div>
 </article>
 
 @code {
