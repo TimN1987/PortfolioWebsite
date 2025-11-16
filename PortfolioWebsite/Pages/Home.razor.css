@@ -54,7 +54,7 @@
     margin: 0;
 }
 
-.home-link a {
+.home-link-text {
     font-family: var(--font-primary);
     font-size: var(--font-size-header);
     color: var(--color-text-primary);

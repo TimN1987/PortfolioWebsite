@@ -106,7 +106,7 @@
         padding: 0 1rem;
     }
 
-        .dropdown-menu li a {
+        .dropdown-link {
             color: var(--color-text-primary);
             text-decoration: none;
             display: inline-block;
@@ -114,11 +114,11 @@
             transform-origin: center;
         }
 
-            .dropdown-menu li a:hover {
+            .dropdown-link:hover {
                 transform: scale(1.2, 1.2);
             }
 
-            .dropdown-menu li a:active {
+            .dropdown-link:active {
                 text-shadow: 0 0 2px var(--color-text-primary), 0 0 5px var(--color-text-primary), 0 0 10px var(--color-text-primary);
             }
 

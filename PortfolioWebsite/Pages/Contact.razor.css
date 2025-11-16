@@ -22,8 +22,8 @@
         font-weight: bold;
     }
 
-    .contact-form input,
-    .contact-form textarea {
+    .contact-form-input,
+    .contact-form-textarea {
         font-family: var(--font-primary);
         font-size: var(--font-size-standard);
         padding: 0.5rem;
