@@ -1,5 +1,6 @@
 ﻿@page "/contact"
 @layout MainLayout
+@inject IJSRuntime JS
 
 <section class="contact-section">
     <h1 class="contact-header"><span>Contact</span></h1>
@@ -33,12 +34,20 @@
 @code {
 	private ContactFormModel ContactModel { get; set; } = new();
 	private bool IsSubmitted { get; set; } = false;
+    private string CaptchaToken { get; set; } = "";
 
     [Inject] private HttpClient Http { get; set; } = default!;
 
     private async Task SubmitForm()
     {
-        // Basic sanitisation
+        CaptchaToken = await JS.InvokeAsync<string>("getRecaptchaToken");
+
+        if (string.IsNullOrWhiteSpace(CaptchaToken))
+        {
+            Console.WriteLine("Failed to retrieve reCAPTCHA token.");
+            return;
+        }
+
         ContactModel.Name = ContactModel.Name.Trim();
         ContactModel.Email = ContactModel.Email.Trim();
         ContactModel.Message = ContactModel.Message.Trim();
@@ -51,7 +60,7 @@
             email = ContactModel.Email,
             subject = "Portfolio query",
             message = ContactModel.Message,
-            captcha = "" // optional future integration
+            captcha = CaptchaToken
         };
 
         try
@@ -63,7 +72,7 @@
             if (response.IsSuccessStatusCode)
             {
                 IsSubmitted = true;
-                ContactModel = new ContactFormModel(); // reset form
+                ContactModel = new ContactFormModel();
             }
             else
             {
