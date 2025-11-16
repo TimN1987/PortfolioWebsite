@@ -4,18 +4,24 @@
 <section class="contact-section">
     <h1 class="contact-header"><span>Contact</span></h1>
 
-    <form class="contact-form" id="contactForm" onsubmit="return false;">
+    <EditForm Model="ContactModel" OnValidSubmit="SubmitForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
         <label for="name">Name</label>
-        <input id="name" type="text" name="name" @bind="ContactModel.Name" minlength="2" maxlength="100" required aria-required="true" />
+        <InputText id="name" @bind-Value="ContactModel.Name" />
+        <ValidationMessage For="@(() => ContactModel.Name)" />
 
         <label for="email">Email</label>
-        <input id="email" type="email" name="_replyto" @bind="ContactModel.Email" minlength="2" maxlength="254" required aria-required="true" />
+        <InputText id="email" type="email" @bind-Value="ContactModel.Email" />
+        <ValidationMessage For="@(() => ContactModel.Email)" />
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" @bind="ContactModel.Message" minlength="10" maxlength="400" required aria-required="true"></textarea>
+        <InputTextArea id="message" @bind-Value="ContactModel.Message" rows="5" />
+        <ValidationMessage For="@(() => ContactModel.Message)" />
 
-        <button type="button" @onclick="SubmitForm"><span>Submit</span></button>
-    </form>
+        <button type="submit"><span>Submit</span></button>
+    </EditForm>
 
     @if (IsSubmitted)
     {
@@ -23,12 +29,20 @@
     }
 </section>
 
+
 @code {
-    private ContactFormModel ContactModel = new();
-    private bool IsSubmitted = false;
+	private ContactFormModel ContactModel { get; set; } = new();
+	private bool IsSubmitted { get; set; } = false;
+
+    [Inject] private HttpClient Http { get; set; } = default!;
 
     private async Task SubmitForm()
     {
+        // Basic sanitisation
+        ContactModel.Name = ContactModel.Name.Trim();
+        ContactModel.Email = ContactModel.Email.Trim();
+        ContactModel.Message = ContactModel.Message.Trim();
+
         var url = "https://exploringcoding.co.uk/api/contact.php";
 
         var payload = new
@@ -37,50 +51,49 @@
             email = ContactModel.Email,
             subject = "Portfolio query",
             message = ContactModel.Message,
-            captcha = ""
+            captcha = "" // optional future integration
         };
-
-        var json = JsonSerializer.Serialize(payload);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         try
         {
-            using var client = new HttpClient();
-            var response = await client.PostAsync(url, content);
+            var response = await Http.PostAsJsonAsync(url, payload);
 
-            var responseBody = await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)
             {
                 IsSubmitted = true;
-                ContactModel = new ContactFormModel();
+                ContactModel = new ContactFormModel(); // reset form
             }
             else
             {
-                Console.WriteLine("Form submission failed: " + responseBody);
+                Console.WriteLine($"Form submission failed: {json}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error submitting form: " + ex.Message);
+            Console.WriteLine($"Error submitting form: {ex.Message}");
         }
     }
 
+
     public class ContactFormModel
     {
-        [Required(ErrorMessage = "Name is required.")]
+        [Required]
         [RegularExpression(@"^[\p{L}\s'-]{2,100}$",
             ErrorMessage = "Name must be 2–100 characters and contain only letters, spaces, hyphens, or apostrophes.")]
         public string Name { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Email is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        [Required]
+        [EmailAddress]
+        [StringLength(254)]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Message is required.")]
+        [Required]
         [StringLength(400, MinimumLength = 10,
             ErrorMessage = "Message must be between 10 and 400 characters.")]
         public string Message { get; set; } = string.Empty;
     }
+
 }
 
