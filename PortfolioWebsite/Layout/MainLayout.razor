@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@inject IConfiguration Configuration
+@inject AppConfig Configuration
 
 <header class="top-nav">
     <div class="nav-left">
@@ -36,7 +36,7 @@
             <img src="images/mainlayout/githubwhite.png" alt="GitHub" class="dark-image" />
             <img src="images/mainlayout/githubblack.png" alt="GitHub" class="light-image" />
         </a>
-        <a href="mailto:@Configuration["contactEmail"]" class="footer-link email">
+        <a href="mailto:@Configuration.ContactEmail" class="footer-link email">
             <img src="images/mainlayout/emailwhite.png" alt="Email" class="dark-image" />
             <img src="/images/mainlayout/emailblack.png" alt="Email" class="light-image" />
         </a>

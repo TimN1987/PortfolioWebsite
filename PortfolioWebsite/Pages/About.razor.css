@@ -100,6 +100,10 @@
 .skills-container {
     width: 100%;
     height: 250px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     position: relative;
     margin: 0 auto 5rem auto;
     transform-style: preserve-3d;
@@ -110,7 +114,7 @@
         animation: rotateSkills 30s linear infinite;
     }
 
-.skill-card {
+.skills-container:hover .skill-card {
     position: absolute;
     height: 80px;
     width: 100px;
@@ -118,51 +122,51 @@
     left: 50%;
 }
 
-    .skill-card:nth-child(1) {
+    .skills-container:hover .skill-card:nth-child(1) {
         transform: translate(-50%, -50%) rotateY(0deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(2) {
+    .skills-container:hover .skill-card:nth-child(2) {
         transform: translate(-50%, -50%) rotateY(30deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(3) {
+    .skills-container:hover .skill-card:nth-child(3) {
         transform: translate(-50%, -50%) rotateY(60deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(4) {
+    .skills-container:hover .skill-card:nth-child(4) {
         transform: translate(-50%, -50%) rotateY(90deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(5) {
+    .skills-container:hover .skill-card:nth-child(5) {
         transform: translate(-50%, -50%) rotateY(120deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(6) {
+    .skills-container:hover .skill-card:nth-child(6) {
         transform: translate(-50%, -50%) rotateY(150deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(7) {
+    .skills-container:hover .skill-card:nth-child(7) {
         transform: translate(-50%, -50%) rotateY(180deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(8) {
+    .skills-container:hover .skill-card:nth-child(8) {
         transform: translate(-50%, -50%) rotateY(210deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(9) {
+    .skills-container:hover .skill-card:nth-child(9) {
         transform: translate(-50%, -50%) rotateY(240deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(10) {
+    .skills-container:hover .skill-card:nth-child(10) {
         transform: translate(-50%, -50%) rotateY(270deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(11) {
+    .skills-container:hover .skill-card:nth-child(11) {
         transform: translate(-50%, -50%) rotateY(300deg) translateZ(var(--z-translate));
     }
 
-    .skill-card:nth-child(12) {
+    .skills-container:hover .skill-card:nth-child(12) {
         transform: translate(-50%, -50%) rotateY(330deg) translateZ(var(--z-translate));
     }
 
@@ -177,22 +181,22 @@
 
 @keyframes rotateSkills {
     0% {
-        transform: rotateZ(5deg) rotateY(0deg);
+        transform: rotateZ(0deg) rotateY(0deg);
     }
 
     25% {
-        transform: rotateZ(0deg) rotateY(90deg);
+        transform: rotateZ(5deg) rotateY(90deg);
     }
 
     50% {
-        transform: rotateZ(-5deg) rotateY(180deg);
+        transform: rotateZ(0deg) rotateY(180deg);
     }
 
     75% {
-        transform: rotateZ(0deg) rotateY(270deg);
+        transform: rotateZ(-5deg) rotateY(270deg);
     }
 
     100% {
-        transform: rotateZ(5deg) rotateY(360deg);
+        transform: rotateZ(0deg) rotateY(360deg);
     }
 }
