@@ -14,7 +14,9 @@
     text-align: left;
     margin: 2rem 5vw;
     display: inline-block;
-    width: auto;
+    width: 100%;
+    max-width: 900px;
+    margin: 1rem auto 3rem auto;
     transition: text-shadow 0.2s ease-in-out;
 }
 
@@ -42,6 +44,7 @@
     }
 
 .about-content {
+    max-width: 900px;
     font-family: var(--font-primary);
     font-size: var(--font-size-standard);
     color: var(--color-text-primary);
@@ -50,24 +53,16 @@
     margin: 0 auto;
 }
 
-.about-intro {
-    display: flex;
-    flex-direction: row;
-    gap: clamp(50px, 1rem, 100px);
-    margin: 1rem 5vw;
-}
-
-@media (width < 600px) {
-    .about-intro {
-        flex-direction: column;
-        align-items: center;
-    }
+.about-info {
+    width: 100%;
 }
 
 .about-image-container {
-    flex: 0 0 auto;
-    width: clamp(100px, 20vw, 200px);
+    width: 200px;
     height: auto;
+    float: right;
+    margin: 0 3rem;
+    padding: 0;
 }
 
 .about-image {
@@ -76,12 +71,128 @@
     border-radius: 0.75rem;
 }
 
-.about-info {
-    flex: 1;
-    line-height: 1.6;
-    text-align: left;
-    margin: 1rem 5vw;
+@media (max-width: 700px) {
+    .about-image-container {
+        float: none;
+        margin: 0 auto;
+    }
+
+    .about-info p {
+        clear: both;
+    }
 }
 
 .about-skills {
+    --z-translate: 360px;
+}
+
+@media (max-width: 700px) {
+    .about-skills {
+        --z-translate: 200px;
+    }
+
+    .skill-card {
+        height: 80px;
+        width: 60px;
+    }
+}
+
+.skills-container {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    margin: 0 auto 5rem auto;
+    transform-style: preserve-3d;
+    transition: animation 30s ease-in-out;
+}
+
+    .skills-container:hover {
+        animation: rotateSkills 30s linear infinite;
+    }
+
+.skill-card {
+    position: absolute;
+    height: 80px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+}
+
+    .skill-card:nth-child(1) {
+        transform: translate(-50%, -50%) rotateY(0deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(2) {
+        transform: translate(-50%, -50%) rotateY(30deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(3) {
+        transform: translate(-50%, -50%) rotateY(60deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(4) {
+        transform: translate(-50%, -50%) rotateY(90deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(5) {
+        transform: translate(-50%, -50%) rotateY(120deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(6) {
+        transform: translate(-50%, -50%) rotateY(150deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(7) {
+        transform: translate(-50%, -50%) rotateY(180deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(8) {
+        transform: translate(-50%, -50%) rotateY(210deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(9) {
+        transform: translate(-50%, -50%) rotateY(240deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(10) {
+        transform: translate(-50%, -50%) rotateY(270deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(11) {
+        transform: translate(-50%, -50%) rotateY(300deg) translateZ(var(--z-translate));
+    }
+
+    .skill-card:nth-child(12) {
+        transform: translate(-50%, -50%) rotateY(330deg) translateZ(var(--z-translate));
+    }
+
+@keyframes rotateSkill {
+    from {
+        transform: rotateZ(5deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateZ(5deg) rotateY(360deg);
+    }
+}
+
+@keyframes rotateSkills {
+    0% {
+        transform: rotateZ(5deg) rotateY(0deg);
+    }
+
+    25% {
+        transform: rotateZ(0deg) rotateY(90deg);
+    }
+
+    50% {
+        transform: rotateZ(-5deg) rotateY(180deg);
+    }
+
+    75% {
+        transform: rotateZ(0deg) rotateY(270deg);
+    }
+
+    100% {
+        transform: rotateZ(5deg) rotateY(360deg);
+    }
 }

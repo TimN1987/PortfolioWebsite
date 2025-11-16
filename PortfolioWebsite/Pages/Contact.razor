@@ -1,0 +1,86 @@
+﻿@page "/contact"
+@layout MainLayout
+
+<section class="contact-section">
+    <h1 class="contact-header"><span>Contact</span></h1>
+
+    <form class="contact-form" id="contactForm" onsubmit="return false;">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" @bind="ContactModel.Name" minlength="2" maxlength="100" required aria-required="true" />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="_replyto" @bind="ContactModel.Email" minlength="2" maxlength="254" required aria-required="true" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" @bind="ContactModel.Message" minlength="10" maxlength="400" required aria-required="true"></textarea>
+
+        <button type="button" @onclick="SubmitForm"><span>Submit</span></button>
+    </form>
+
+    @if (IsSubmitted)
+    {
+        <p class="success-message">Thank you for your message, @ContactModel.Name! 🎉</p>
+    }
+</section>
+
+@code {
+    private ContactFormModel ContactModel = new();
+    private bool IsSubmitted = false;
+
+    private async Task SubmitForm()
+    {
+        var url = "https://exploringcoding.co.uk/api/contact.php";
+
+        var payload = new
+        {
+            name = ContactModel.Name,
+            email = ContactModel.Email,
+            subject = "Portfolio query",
+            message = ContactModel.Message,
+            captcha = ""
+        };
+
+        var json = JsonSerializer.Serialize(payload);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        try
+        {
+            using var client = new HttpClient();
+            var response = await client.PostAsync(url, content);
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                IsSubmitted = true;
+                ContactModel = new ContactFormModel();
+            }
+            else
+            {
+                Console.WriteLine("Form submission failed: " + responseBody);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error submitting form: " + ex.Message);
+        }
+    }
+
+    public class ContactFormModel
+    {
+        [Required(ErrorMessage = "Name is required.")]
+        [RegularExpression(@"^[\p{L}\s'-]{2,100}$",
+            ErrorMessage = "Name must be 2–100 characters and contain only letters, spaces, hyphens, or apostrophes.")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Message is required.")]
+        [StringLength(400, MinimumLength = 10,
+            ErrorMessage = "Message must be between 10 and 400 characters.")]
+        public string Message { get; set; } = string.Empty;
+    }
+}
+

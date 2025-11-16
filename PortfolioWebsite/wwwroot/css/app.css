@@ -4,6 +4,7 @@
     --color-background-primary: #101010;
     --color-background-secondary: #202020;
     --color-background-highlight: #39ff14;
+    --color-background-highlight-light: #cccccc;
     --color-text-primary: #dddddd;
     --color-text-icons: #ffffff;
 
@@ -20,6 +21,7 @@
         --color-background-primary: #101010;
         --color-background-secondary: #202020;
         --color-background-highlight: #39ff14;
+        --color-background-highlight-light: #cccccc;
         --color-text-primary: #dddddd;
         --color-text-icons: #ffffff;
     }
@@ -31,6 +33,7 @@
         --color-background-primary: #578fca;
         --color-background-secondary: #488fdb;
         --color-background-highlight: #a1e3f9;
+        --color-background-highlight-light: #d1f8ef;
         --color-text-primary: #d1f8ef;
         --color-text-icons: #000000;
     }

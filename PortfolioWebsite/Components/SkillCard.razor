@@ -1,0 +1,9 @@
+﻿<div class="skill-card-template">
+	<img class="skill-logo" src="@ImageSource" alt="@ImageSource logo." loading="lazy"/>
+	<h3 class="skill-name"><span>@SkillName</span></h3>
+</div>
+
+@code {
+	[Parameter] public string ImageSource { get; set; } = string.Empty;
+	[Parameter] public string SkillName { get; set; } = string.Empty;
+}

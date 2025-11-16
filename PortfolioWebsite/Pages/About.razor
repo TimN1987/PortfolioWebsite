@@ -4,23 +4,58 @@
 <section class="about-section">
 	<h1 class="about-header"><span>About</span></h1>
 	<article class="about-content">
-		<div class="about-intro">
-			<p>
-				Hello, my name is Tim Naish! I'm an experienced teacher, looking to move into the world of software development. 
-				I have a passion for problem solving and logical thinking, which I have enjoyed putting to work through learning 
-				programming. 
-			</p>
-			<figure class="about-image-container">
-				<img class="about-image" src="images/about/profilepicture.png" alt="Profile photo" width="1024" height="1536" loading="lazy" />
-			</figure>
-		</div>
 		<div class="about-info">
+			<figure class="about-image-container">
+				<img class="about-image" src="/images/about/profilepicture.png" alt="Profile photo" width="1024" height="1536" loading="lazy" />
+			</figure>
 			<p>
-				
+				Hello, my name is Tim! I’m an experienced teacher transitioning into software development. I’ve always enjoyed logical thinking and 
+				problem solving, and programming has become a natural extension of those interests. I love tackling new challenges, learning new technologies, 
+				and building clean, maintainable solutions that feel intuitive for the user.
+			</p>
+			<p>
+				My core experience is with C# and .NET, where I’ve built WPF and WinForms applications using MVVM and Dependency Injection to keep my projects 
+				well-structured and extensible. I’ve also explored enhancing desktop applications with Python integrations — including using PyTorch to build 
+				a reinforcement-learning Battleships player for one of my WPF projects.
+			</p>
+			<p>
+				More recently I’ve been developing web applications with Blazor, alongside strengthening my HTML, CSS, and JavaScript skills. I enjoy combining 
+				backend logic with thoughtful UI design, and I’m continually expanding my knowledge as I move toward a role in professional software development.
 			</p>
 		</div>
 		<div class="about-skills">
-
+			<div class="skills-container">
+				@foreach (var skill in Skills) 
+				{
+					<div class="skill-card">
+						<SkillCard ImageSource="@skill.ImageSource" SkillName="@skill.SkillName"/>
+					</div>
+				}
+			</div>
 		</div>
 	</article>
 </section>
+
+@code {
+	private List<SkillInfo> Skills = new()
+	{
+		new SkillInfo() { ImageSource = "images/skills/csharp.png", SkillName = "C#" },
+		new SkillInfo() { ImageSource = "images/skills/dotnet.png", SkillName = ".NET" },
+		new SkillInfo() { ImageSource = "images/skills/blazor.png", SkillName = "Blazor" },
+		new SkillInfo() { ImageSource = "/images/skills/wpf.png", SkillName = "WPF" },
+		new SkillInfo() { ImageSource = "/images/skills/xaml.png", SkillName = "XAML" },
+		new SkillInfo() { ImageSource = "/images/skills/sql.png", SkillName = "SQL" },
+		new SkillInfo() { ImageSource = "/images/skills/html.png", SkillName = "HTML" },
+		new SkillInfo() { ImageSource = "/images/skills/css.png", SkillName = "CSS" },
+		new SkillInfo() { ImageSource = "/images/skills/js.png", SkillName = "JavaScript" },
+		new SkillInfo() { ImageSource = "/images/skills/python.png", SkillName = "Python" },
+		new SkillInfo() { ImageSource = "/images/skills/git.png", SkillName = "Git"},
+		new SkillInfo() { ImageSource = "/images/skills/tdd.png", SkillName = "TDD"}
+	};
+
+	private class SkillInfo
+	{
+		public string ImageSource { get; set; } = string.Empty;
+		public string SkillName { get; set; } = string.Empty;
+	}
+}
