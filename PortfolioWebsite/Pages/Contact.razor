@@ -2,26 +2,32 @@
 @layout MainLayout
 @inject IJSRuntime JS
 
+<PageTitle>Contact</PageTitle>
+
 <section class="contact-section">
     <h1 class="contact-header"><span>Contact</span></h1>
+    <p>Interested in working together or just have a question? Use the form below to contact me.</p>
 
-    <EditForm class="contact-form" Model="ContactModel" OnValidSubmit="SubmitForm">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    <EditForm Model="ContactModel" OnValidSubmit="SubmitForm">
+        <div class="contact-form">
+            <DataAnnotationsValidator />
 
-        <label for="name">Name</label>
-        <InputText class="context-form-input" id="name" @bind-Value="ContactModel.Name" />
-        <ValidationMessage For="@(() => ContactModel.Name)" />
+            <label for="name">Name</label>
+            <InputText class="context-form-input" id="name" @bind-Value="ContactModel.Name" />
+            <ValidationMessage For="@(() => ContactModel.Name)" />
 
-        <label for="email">Email</label>
-        <InputText class="context-form-input" id="email" type="email" @bind-Value="ContactModel.Email" />
-        <ValidationMessage For="@(() => ContactModel.Email)" />
+            <label for="email">Email</label>
+            <InputText class="context-form-input" id="email" type="email" @bind-Value="ContactModel.Email" />
+            <ValidationMessage For="@(() => ContactModel.Email)" />
 
-        <label for="message">Message</label>
-        <InputTextArea class="context-form-textarea" id="message" @bind-Value="ContactModel.Message" rows="5" />
-        <ValidationMessage For="@(() => ContactModel.Message)" />
+            <label for="message">Message</label>
+            <InputTextArea class="context-form-textarea" id="message" @bind-Value="ContactModel.Message" rows="5" />
+            <ValidationMessage For="@(() => ContactModel.Message)" />
 
-        <button type="submit"><span>Submit</span></button>
+            <ValidationSummary />
+
+            <button type="submit"><span>Submit</span></button>
+        </div>
     </EditForm>
 
     @if (IsSubmitted)
@@ -35,7 +41,7 @@
 	private ContactFormModel ContactModel { get; set; } = new();
 	private bool IsSubmitted { get; set; } = false;
     private string CaptchaToken { get; set; } = "";
-
+    
     [Inject] private HttpClient Http { get; set; } = default!;
 
     private async Task SubmitForm()
@@ -85,7 +91,6 @@
         }
     }
 
-
     public class ContactFormModel
     {
         [Required]
@@ -103,6 +108,6 @@
             ErrorMessage = "Message must be between 10 and 400 characters.")]
         public string Message { get; set; } = string.Empty;
     }
-
+    
 }
 

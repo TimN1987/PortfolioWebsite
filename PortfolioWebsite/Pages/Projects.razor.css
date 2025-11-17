@@ -39,7 +39,7 @@
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 40vw));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 30vw));
     gap: 3rem;
     padding: 5vw;
 }
