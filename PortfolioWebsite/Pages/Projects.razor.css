@@ -4,6 +4,11 @@
     font-family: var(--font-primary);
 }
 
+.projects-section {
+    width: 100%;
+    max-width: 900px;
+}
+
 .projects-header {
     position: relative;
     font-size: var(--font-size-header);
@@ -39,7 +44,20 @@
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 30vw));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 425px));
     gap: 3rem;
-    padding: 5vw;
+    padding: 3rem;
+}
+
+@media (max-width: 700px) {
+    .projects-section {
+        max-width: 600px;
+    }
+
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(175px, 275px));
+        gap: 1rem;
+        padding: 1rem;
+    }
 }

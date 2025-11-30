@@ -39,6 +39,19 @@
     }
 }
 
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus,
+input:focus,
+a:focus {
+    border-color: inherit !important;
+    box-shadow: none !important;
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
