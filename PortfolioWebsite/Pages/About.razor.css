@@ -3,7 +3,7 @@
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     justify-self: center;
     margin: 0 auto;
     padding: 1rem;
@@ -14,10 +14,10 @@
     font-family: var(--font-primary);
     font-size: var(--font-size-header);
     color: var(--color-text-primary);
+    align-self: flex-start;
     text-align: left;
-    margin: 2rem 5vw;
+    margin: 2rem 0;
     display: inline-block;
-    margin: 1rem auto 3rem auto;
     transition: text-shadow 0.2s ease-in-out;
 }
 
