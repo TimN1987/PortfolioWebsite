@@ -148,3 +148,7 @@ h1.focus {
 code {
     color: #c02d76;
 }
+
+.grecaptcha-badge {
+    display: none;
+}
