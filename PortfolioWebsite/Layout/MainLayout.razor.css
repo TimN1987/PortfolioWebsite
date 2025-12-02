@@ -137,7 +137,7 @@
 
 /* Main content */
 .content-frame {
-    padding: 2rem;
+    padding: 2rem 2rem 6rem 2rem;
     flex: 1 1 auto;
     background-color: var(--color-background-primary);
     color: var(--color-text-primary);
