@@ -51,20 +51,19 @@
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 225px));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 425px));
     gap: 3rem;
     width: 100%;
+    justify-content: center;
+    margin: 3rem 0;
 }
 
 @media (max-width: 700px) {
     .projects-section {
-        max-width: 600px;
+        max-width: 400px;
     }
 
     .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(175px, 275px));
         gap: 1rem;
-        padding: 1rem;
     }
 }
