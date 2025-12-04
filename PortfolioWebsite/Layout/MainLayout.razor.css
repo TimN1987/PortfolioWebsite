@@ -76,9 +76,22 @@
     color: var(--color-text-icons);
 }
 
+/* Menu overlay */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 100;
+}
+
 /* Dropdown menu */
 .dropdown-menu {
     position: absolute;
+    z-index: 200;
     right: 0;
     top: 2.5rem;
     display: flex;

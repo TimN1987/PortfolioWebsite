@@ -15,6 +15,10 @@
 
         @if (isMenuOpen)
         {
+            <!-- Overlay for menu closing when clicking outside menu. -->
+            <div class="menu-overlay" @onclick="CloseMenu"></div>
+
+            <!-- Drop down menu. -->
             <ul class="dropdown-menu">
                 <li><a class="dropdown-link" href="about">About</a></li>
                 <li><a class="dropdown-link" href="projects">Projects</a></li>
@@ -49,6 +53,11 @@
     {
         isMenuOpen = !isMenuOpen;
     }
+
+    private void CloseMenu()
+    {
+        isMenuOpen = false;
+	}
 }
 
 
