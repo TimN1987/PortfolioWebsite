@@ -29,5 +29,9 @@ A simple portfolio website, displaying projects I have been working on, created 
 - **Languages:** C#, HTML, CSS
 - **Framework:** .NET 8
 - **Web Framework:** Blazor (for web app version)
-- **Tools:**
-  - Visual Studio 2022
+- **Tools:** Visual Studio 2022
+
+## License:
+
+MIT License. For more details, see:
+[LICENSE](LICENSE)
