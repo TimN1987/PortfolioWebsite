@@ -2,8 +2,7 @@
 
 A simple portfolio website, displaying projects I have been working on, created in Blazor.
 
-## Screenshots:
-![Home](assets/PortfolioHome.jpg)
-![Projects](assets/PortfolioProjects.jpg)
+<img src="assets/PortfolioHome.jpg" alt="Home page screenshot" width="600"/>
+<img src="assets/PortfolioProjects.jpg" alt="Projects page screenshot" width="600"/>
 
 ## Aims:
