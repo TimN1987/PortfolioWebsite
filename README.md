@@ -1,6 +1,6 @@
 # 🖥️ Portfolio Website 🖥️
 
-A simple portfolio website, displaying projects I have been working on, created in Blazor.
+A simple portfolio website, displaying projects I have been working on, created using Blazor web apps.
 
 <img src="assets/PortfolioHome.jpg" alt="Home page screenshot" width="600"/><img src="assets/PortfolioProjects.jpg" alt="Projects page screenshot" width="600"/>
 
@@ -18,3 +18,11 @@ A simple portfolio website, displaying projects I have been working on, created 
 
 - Add a "fun" section to make more use of C# for interactive features.
 - Add further Project pages to include more detail and filtering by framework or language.
+
+## Tech stack:
+
+- **Languages:** C#, HTML, CSS
+- **Framework:** .NET 8
+- **Web Framework:** Blazor (for web app version)
+- **Tools:**
+  - Visual Studio 2022
