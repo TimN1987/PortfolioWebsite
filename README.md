@@ -1,5 +1,10 @@
 # 🖥️ Portfolio Website 🖥️
 
+![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-8.0-blue?style=flat&logo=dotnet&logoColor=white)
+![Blazor](https://img.shields.io/badge/Blazor-8.0-purple?style=flat)
+![Platform](https://img.shields.io/badge/Platform-Browser-blue?style=flat&logo=internet-explorer)
+
 A simple portfolio website, displaying projects I have been working on, created using Blazor web apps.
 
 <img src="assets/PortfolioHome.jpg" alt="Home page screenshot" width="600"/><img src="assets/PortfolioProjects.jpg" alt="Projects page screenshot" width="600"/>
@@ -19,7 +24,7 @@ A simple portfolio website, displaying projects I have been working on, created 
 - Add a "fun" section to make more use of C# for interactive features.
 - Add further Project pages to include more detail and filtering by framework or language.
 
-## Tech stack:
+## 🖥️ Tech stack:
 
 - **Languages:** C#, HTML, CSS
 - **Framework:** .NET 8
